@@ -20,7 +20,7 @@ public class MySqlConnection {
 	
 	public Connection getConnection() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
-		String url = "jdbc:mysql://" + this.hostname + ":" + this.portNumber + "/" + this.database;
+		String url = "jdbc:mysql://" + this.hostname + ":" + this.portNumber + "/" + this.database + "?autoReconnect=true&connectTimeout=20000&socketTimeout=20000";
 		return DriverManager.getConnection(url, this.username, this.password);
 	}
 }
